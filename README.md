@@ -35,34 +35,33 @@ Here are the routes:
 # CREATE:
 
 **POST: Add New Course to the List**
-
 - Route: /courses  
 Request: { course }  
-Response: The course added, { course } or { error: }  
+Response: The course added, { course } or { error: }
+  
 # READ:
 
 **GET: Course Given ID of course, Represented as JSON**
-
 - Route: courses/:id  
-Response: { course } or { error: }  
-GET: All Courses, Represented as a Graph  
+Response: { course } or { error: }
 
+**GET: All Courses, Represented as a Graph**  
 - Route: /courses/graph  
-Response: HTML  
-GET: All Courses, Represented as a JSON  
+Response: HTML
 
+**GET: All Courses, Represented as a JSON**  
 - Route: /courses/json  
-Response: [{ course },{ course },...]  
-GET: All Courses, represented as graphnodes  
-
+Response: [{ course },{ course },...]
+  
+**GET: All Courses, represented as graphnodes** 
 - Route: /courses/graphnodes  
-Response:  [{ course },{ course },...]  
-GET: All Course Prerequisite Dependencies, represented as graph edges  
+Response:  [{ course },{ course },...]
 
+**GET: All Course Prerequisite Dependencies, represented as graph edges**  
 - Route: /courses/graphedges  
-Response:  [{ course },{ course },...]  
-GET: Courses able to be taken, given a set of prerequisites, Represented as a JSON  
+Response:  [{ course },{ course },...]
 
+**GET: Courses able to be taken, given a set of prerequisites, Represented as a JSON**
 - Route: courses/json/with_prerequisites/:id_list  
 Route Parameter is List of CourseIDs of the prereqs, delimited by commas  
 Example: /CS|111,CS|240  
@@ -70,18 +69,17 @@ Response:  [{ course },{ course },...]
 # UPDATE:
 
 **PATCH: Change Course Data. NOTE: Data Cannot Include "id"**
-
 - Route: courses/  
 Request: {"id":"", "course_data": { course }}  
-Response: The course updated, { course } or { error: }  
-PATCH: Change Prerequisites. (just a streamlined version of changing course data for specifically prereqs)  
+Response: The course updated, { course } or { error: }
 
+**PATCH: Change Prerequisites. (just a streamlined version of changing course data for specifically prereqs)**  
 - Route: courses/prerequisites  
 Request: {"id":"", "prerequisites":[]}  
-Response: The course updated, { course } or { error: }  
+Response: The course updated, { course } or { error: }
+ 
 # DELETE:
 
 **DELETE: Delete Course**
-
 - Route: courses/:id  
 Response: The course deleted, { course } or { error: }  
