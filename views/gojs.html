@@ -1,0 +1,31 @@
+<div id="myDiagramDiv" style="width:1366px; height:784px;"></div>
+
+<script src="https://unpkg.com/gojs"></script>
+
+<script type="module">
+    const graphedges = await fetch('./graphedges/').then((data) => data.json()); 
+    const graphnodes = await fetch('./graphnodes/').then((data) => data.json()); ; 
+
+    const $ = go.GraphObject.make;
+    const myDiagram =
+      new go.Diagram("myDiagramDiv",  
+        { "undoManager.isEnabled": true,
+            initialAutoScale: go.Diagram.Uniform,  
+            contentAlignment: go.Spot.Center,  
+            layout: $(go.ForceDirectedLayout,
+              { maxIterations: 200,
+                defaultSpringLength: 50, 
+                defaultSpringStiffness: .01, 
+                defaultElectricalCharge: 100 
+              })
+        }
+      );
+
+    myDiagram.nodeTemplate = new go.Node("Auto")
+        .add(new go.Shape("RoundedRectangle",
+            { strokeWidth: 0, fill: "white" })
+            .bind("fill", "color")) 
+        .add(new go.TextBlock({ margin: 8, stroke: "#333" })
+            .bind("text", "key")); 
+    myDiagram.model = new go.GraphLinksModel(graphnodes,graphedges);
+</script>
