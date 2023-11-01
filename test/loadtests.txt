@@ -1,0 +1,64 @@
+1. POST a new Course to /courses/
+
+loadtest http://localhost:3000/courses/ -n 100 -c 1 --rps 10 -m POST -T 'application/json' -P '{"id":"course_test","prerequisites":null}'
+
+
+2. GET /courses/json/:id
+
+loadtest -n 100 -c 10 --rps 10 http://localhost:3000/courses/json/COMPSCI%7C119
+
+
+loadtest -n 100 -c 10 --rps 10 http://localhost:3000/courses/json/COMPSCI%7C999
+
+
+3. GET /courses/json
+
+loadtest -n 1000 -c 10 --rps 10 http://localhost:3000/courses/json
+
+
+
+4. PATCH /courses
+
+loadtest http://localhost:3000/courses/ -n 100 -c 1 --rps 10 -m PATCH -T 'application/json' -A '{"id":"course_test","course_data":{"subjectLong":"apple"}}'
+
+
+
+5. PATCH courses/prerequisites
+
+loadtest http://localhost:3000/courses/prerequisites/ -n 100 -c 1 --rps 10 -m PATCH -T application/json' -A '{"id":"course_test","prerequisites":["AND","COMPSCI|119"]}'
+
+
+
+6. GET /courses/graphnodes
+
+loadtest -n 1000 -c 10 --rps 10 http://localhost:3000/courses/graphnodes/
+
+
+7. GET /courses/graphedges
+
+loadtest -n 1000 -c 10 --rps 50 http://localhost:3000/courses/graphedges/
+
+
+8. GET /courses/graph
+
+loadtest -n 1000 -c 10 --rps 50 http://localhost:3000/courses/graph
+
+
+9. GET /courses/json/with_prerequisites/:id_list
+
+loadtest -n 1000 -c 50 --rps 10 http://localhost:3000/courses/json/with_prerequisites/COMPSCI%7C220/
+
+
+loadtest -n 1000 -c 50 --rps 10 http://localhost:3000/courses/json/with_prerequisites/COMPSCI%7C220,COMPSCI%7C2240,COMPSCI%7C250,COMPSCI%7C230
+
+
+loadtest -n 1000 -c 50 --rps 10 http://localhost:3000/courses/json/with_prerequisites/COMPSCI%7C1000/
+
+
+
+
+10. DELETE /courses/
+
+loadtest -n 1000 -c 10 --rps 10 http://localhost:3000/courses/COMPSCI%7C1000 -m DELETE
+
+
