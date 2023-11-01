@@ -1,10 +1,16 @@
 # class-prereq-app
 
-Overview: 
+# Overview: 
 
 This API is designed to support adding courses in a Database, along with their pre-requisites to other courses within the database. These dependencies can be interacted with: you can search for possible courses to take based on the courses already completed, or view a graph of course prereqs (which does not distinguish between optional prereqs or not) represented as edges. 
 
- 
+# Usage: 
+
+**1. Download Files**
+**2. Run `npm install` to install libraries and dependencies**
+**3. Run `npm run dev` or `node index.js` to start server**
+
+# Courses/Prerequisite Structure: 
 
 A Course is a JSON object containing all these keys: 
 
@@ -22,7 +28,6 @@ IDs of courses (Strings)
 Nested Prerequisite arrays
 If all courses in a Prerequisite array must be taken, then the operation must be an "AND". If only one course of a selection must be taken, then the operation must be "OR". Ignore grades and major requirements
 For example: CS 589, whose prerequisities are "MATH 545 and COMPSCI 240 and STATS 515 C or better. MATH 545 can be skipped by students who have taken MATH 235 and MATH 233 both with B+ or better. STATS 515 can be skipped by students who have taken COMPSCI 240 with a B+ or better" can have its prerequisites array represented as "prerequisites": ["AND", ["OR","MATH|545", ["AND","MATH|235","MATH|233"]], ["OR", "STATISTC|515", "COMPSCI|240"], "COMPSCI|240"]; 
- 
 
 Here are the routes:
 
