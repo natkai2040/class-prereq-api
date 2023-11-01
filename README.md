@@ -6,9 +6,9 @@ This API is designed to support adding courses in a Database, along with their p
 
 # Usage: 
 
-**1. Download Files** \
-**2. Run `npm install` to install libraries and dependencies** \
-**3. Run `npm run dev` or `node index.js` to start server** \
+**1. Download Files**  
+**2. Run `npm install` to install libraries and dependencies**  
+**3. Run `npm run dev` or `node index.js` to start server**  
 
 # Courses/Prerequisite Structure: 
 
