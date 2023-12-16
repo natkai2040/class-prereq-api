@@ -1,4 +1,4 @@
-# class-prereq-app
+# class-prereq-api
 
 # Overview: 
 
