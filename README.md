@@ -4,6 +4,8 @@
 
 This API is designed to support adding courses in a Database, along with their pre-requisites to other courses within the database. These dependencies can be interacted with: you can search for possible courses to take based on the courses already completed, or view a graph of course prereqs (which does not distinguish between optional prereqs or not) represented as edges. 
 
+![image](https://github.com/natkai2040/class-prereq-api/assets/72627669/9d94adf1-0bbd-47ab-9324-9d21777b61cb)
+
 # Usage: 
 
 **1. Download Files**  
